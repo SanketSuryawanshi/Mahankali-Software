@@ -1,0 +1,955 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>🧑‍💻 CodeGrills | Bug Bounty Course |</title>
+
+     <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Signika Negative', sans-serif;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        }
+
+        .benifits{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .benifits .card{
+            margin: 20px 0;
+        }
+
+        .main_div {
+            background: #212529;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .main_div .left {
+            width: 50%;
+        }
+
+        .main_div .right h1 {
+            color: #fff;
+        }
+
+        .main_div .right ul li {
+            color: #000;
+            background: #9fef00;
+            padding: 10px;
+            margin: 5px;
+            list-style: none;
+            width: 250px;
+            text-align: center;
+        }
+
+        .main_div .right ul {
+            display: flex;
+            margin: 30px 0;
+            width: 560px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .main_div .right {
+            width: 50%;
+        }
+
+        header p {
+            margin-bottom: 0px;
+        }
+
+        header {
+            padding: 5px 0;
+            text-align: center;
+            background: #9fef00 !important;
+        }
+
+        .main_div .right button p {
+            margin-bottom: 2px;
+        }
+
+        .main_div .right button {
+            padding: 25px 10px;
+            width: 100%;
+            border: none;
+            color: #fff;
+            background: linear-gradient(91deg, #734AE7 0%, #B417C1 100%);
+            border-radius: 5px;
+        }
+
+        .student_reviews .card img{
+            border-radius: 10px;
+        }
+        .student_reviews .card{
+            padding: 30px;
+        }
+        .student_reviews{
+            display: flex !important;
+            justify-content: space-around !important;
+        }
+
+        .features {
+            padding: 50px;
+            flex-wrap: wrap;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #212529;
+        }
+
+        .features .card img {
+            width: 150px;
+            margin: auto;
+        }
+
+        .features .card:hover{
+            transition: 0.5s all;
+            transform: translateY(-10px);
+        }
+        .features .card {
+            transition: 0.5s all;
+            margin: 10px 0;
+            cursor: pointer;
+            text-align: center;
+            background: #1A2332;
+            color: #fff;
+            border: 2px solid #9fef00;
+        }
+
+        .main_div #Sales {
+            position: absolute;
+            left: 48%;
+        }
+
+        .demo_video {
+            background: #212529;
+            padding: 50px 80px;
+        }
+
+        .demo_video h1 {
+            color: #9fef00;
+            font-weight: bold;
+        }
+
+        .demo_video .videos .video {
+            background: #212529;
+            margin: 10px 0;
+            border: 2px solid #9fef00;
+        }
+
+        .demo_video .videos {
+            margin: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .note h1{
+            color: #9fef00;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .note {
+            background: #212529;
+            padding: 50px;
+        }
+
+        .note p {
+            color: #fff;
+            margin: 0px;
+            font-size: 14px;
+        }
+
+        .about_div {
+            padding: 20px 80px;
+        }
+
+        .about_div .right ul li {
+            color: #fff;
+        }
+
+        .about_div .right h1 {
+            color: #9fef00;
+            font-size: 50px;
+        }
+
+        .about_div .right {
+            color: #fff;
+        }
+
+        .main_div .left #about-img {
+            width: 500px;
+        }
+
+        @keyframes animate {
+            0%{
+                transform: translateX(0px);
+            }
+            50%{
+                transform: translateX(50px);
+            }
+            100%{
+                transform: translateX(0px);
+            }
+        }
+
+        footer button {
+            animation: animate 5s linear infinite;
+            padding: 5px 10px;
+            width: 500px;
+            border: none;
+            color: #fff;
+            background: linear-gradient(91deg, #734AE7 0%, #B417C1 100%);
+            border-radius: 5px;
+        }
+
+        footer {
+            background: #16161C;
+            display: flex;
+            justify-content: space-around;
+            color: #9fef00;
+            padding: 25px 0;
+        }
+
+        footer ul li {
+            list-style: none;
+        }
+
+        footer p {
+            margin-bottom: 0px;
+        }
+
+        .students img{
+            margin: 0px auto;
+            width: 800px;
+        }
+
+        .reviews{
+            background: #212529;
+        }
+
+        .reviews h1{
+            color: #9fef00;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .features2{
+            background: #212529;
+            display: none;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .features2 .card {
+            background: #1A2332;
+            color: #fff;
+        }   
+        .features2 .card {
+            width: 150px;
+            height: 170px;
+            padding: 10px;
+            text-align: center;
+        }  
+        .features2 .card img{
+            width: 70px;
+            margin: 0px auto;
+        }
+
+        @media screen and (max-width:698px) {
+            header p {
+                font-size: 10px;
+            }
+            .student_reviews{
+                justify-content: space-around !important;
+            }
+            .note .divider img {
+                display: none;
+            }
+
+            .note h1{
+                font-size: 18px;
+            }
+
+            .students img{
+                width: 330px;
+            }
+            .students{
+                padding: 25px;
+            }
+
+            .main_div {
+                flex-direction: column;
+                padding: 20px 10px;
+            }
+
+            .main_div .left #myVideo {
+                width: 370px !important;
+                height: 335px !important;
+            }
+
+            .main_div .left {
+                width: 100%;
+            }
+
+            .main_div .right {
+                width: 100%;
+            }
+
+            .main_div .right h1 {
+                font-size: 23px;
+            }
+
+            .main_div .right ul li {
+                font-size: 7px;
+            }
+
+            .main_div .right button {
+                width: 100%;
+            }
+
+            .main_div #Sales {
+                position: absolute;
+                left: -4%;
+                width: 91px;
+            }
+
+            .features {
+                flex-direction: column;
+            }
+            .features .card {
+                transition: 0.5s all;
+                margin: 20px 7px;
+                cursor: pointer;
+            }
+
+            .main_div .left #about-img {
+                width: 352px;
+            }
+
+            .about_div .left {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .about_div .right {
+                padding: 25px;
+            }
+
+            .about_div .right ul {
+                display: none;
+            }
+
+            .about_div .right p {
+                font-size: 15px;
+                text-align: justify;
+            }
+
+            .demo_video {
+                padding: 25px;
+            }
+
+            .demo_video h1 {
+                font-size: 29px;
+            }
+
+            .demo_video .videos {
+                flex-direction: column;
+            }
+
+            .demo_video .videos .video {
+                margin: 10px 0;
+            }
+
+            .demo_video .videos .video iframe {
+                width: 320px;
+                height: 200px;
+            }
+
+            .note {
+                padding: 15px 45px;
+            }
+
+            .note p {
+                text-align: justify;
+            }
+
+            footer {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .main_div .right ul {
+                display: none;
+            }
+
+            footer button {
+                width: 250px;
+            }
+
+            footer ul {
+                margin: 20px 0;
+            }
+
+            footer div {
+                display: none;
+            }
+            .features{
+                display: none;
+            }
+            .features2{
+                display: flex;
+            }
+            .features2 .card{
+                margin: 20px 0;
+                border: 1px solid #fff;
+            }
+            .features2 .card p{
+                display: none;
+            }
+            .benifits .card img{
+                width: 70px;
+            }
+            .benifits{
+                display: flex;
+                padding: 50px 0;
+                flex-wrap: wrap;
+            }
+            .benifits .card h5{
+                font-size: 15px;
+            } 
+            .benifits .card{
+                border: 2px solid #9fef00 !important;
+                width: 150px !important;
+                height: 170px !important;
+            }
+        }
+
+
+        .faq-accordion {
+            display: grid;
+            gap: 0.4rem;
+            max-width: 50rem;
+        }
+
+        .faq-input {
+            display: none;
+        }
+
+        .faq-label {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 1rem;
+            padding-inline: 3%;
+            background-color: var(--color-input);
+        }
+
+        .faq-content {
+            background-color: var(--color-input);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in, padding 0.3s ease-in;
+        }
+
+        .faq-content p {
+            margin: 2rem;
+        }
+
+        .faq-input:checked~.faq-content {
+            max-height: 60rem;
+            transition: max-height 0.3s ease-in;
+        }
+
+        .faq-input:checked~.faq-label i {
+            transform: rotate(45deg);
+            transition: max-height 0.3s ease-in, padding 0.3s ease-in;
+        }
+
+        .FAQDIV .main-text{
+            font-size: 30px;
+        }
+
+        .FAQDIV ul li{
+            list-style: none;
+            background: #212529;
+            border: 2px solid #9fef00;
+        }
+        .FAQDIV ul{
+            margin: 0px auto;
+        }
+        .FAQDIV{
+            background: #1A2332;
+            color: #fff;
+        }
+
+        .last_div{
+            width: 100%;
+            padding: 5px;
+            text-align: center;
+            background: #9fef00;
+        }
+        .last_div p{
+            margin: 0px;
+        }
+
+        .note .divider{
+            display: flex;
+        }
+
+        .note .divider img {
+            width: 270px;
+        }
+
+        /* Media Query --------------------------------------- */
+
+        @media (320px <=width <=940px) {
+            .faq-content p {
+                margin: 1rem;
+            }
+        }
+
+        @media (320px <=width <=480px) {
+            .container {
+                padding: 1rem;
+            }
+        }
+
+        @media (min-width: 2048px) {
+            .container {
+                zoom: 2;
+            }
+        }
+
+        @media screen and (max-width:360px) {
+            .main_div .right h1 {
+                font-size: 20px;
+            }
+            .main_div .left #myVideo {
+                width: 340px !important;
+            }
+            .main_div .right button p{
+                font-size: 12px;
+            }
+            .main_div .left #about-img{
+                width: 300px;
+            }
+        }
+
+  
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <p>| CODEGRILLS PVT LTD &copy;2022-2023 | 📞 +91123456789 | ✉️ codegrills@gmail.in | </p>
+    </header>
+    <div class="main_div">
+        <div class="left">
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_biwpfsmp.json" background="transparent"
+                speed="1" style="width: 500px; height: 500px;" id="myVideo" loop autoplay></lottie-player>
+        </div>
+        <div class="right">
+            <h1>Everything about Ethical Hacking 🧑‍💻</h1>
+            <ul>
+                <li>🧑‍🎓 5000+ Already Enrolled</li>
+                <li>♾️ Life Time Access</li>
+                <li>🌍 In Hindi Language</li>
+                <li>🧑‍💻 Begginner Friendly</li>
+            </ul>
+            <img id="Sales"
+                src="https://img.icons8.com/external-flaticons-flat-flat-icons/150/null/external-sales-black-friday-cyber-monday-flaticons-flat-flat-icons-2.png" />
+            <button>
+                <p> Enroll now to Learn Ethical Hacking</p>
+                <p>Lifetime Access at just <strike>₹ 5000</strike> ₹ 2000 </p>
+            </button>
+        </div>
+    </div>
+
+    <div class="features">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"
+                src="https://img.icons8.com/external-flaticons-flat-flat-icons/150/null/external-software-no-code-flaticons-flat-flat-icons.png"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Software Are Included</h5>
+                <p>All required software / operating systems are included in the course for free.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://img.icons8.com/fluency/150/null/windows-10.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">OS Used</h5>
+                <p>In this course, we have used Windows, Linux, and Android Operating systems.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://img.icons8.com/cotton/150/null/combo-chart--v3.png"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Basic to Advance</h5>
+                <p>Either you want to start or you want to master this course will work in both cases.</p>
+            </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="https://img.icons8.com/color/150/null/packaging.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Premium Bonuses</h5>
+                <p>Get Bonuses worth ₹10,000 Absolutely free. Which will make your journey smoother.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="features2 py-3">
+        <div class="card">
+            <img class="card-img-top"
+                src="https://img.icons8.com/external-flaticons-flat-flat-icons/150/null/external-software-no-code-flaticons-flat-flat-icons.png"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Software Included</h5>
+                <p>All required software / operating systems are included in the course for free.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://img.icons8.com/fluency/150/null/windows-10.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">OS Used</h5>
+                <p>In this course, we have used Windows, Linux, and Android Operating systems.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://img.icons8.com/cotton/150/null/combo-chart--v3.png"
+                alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Basic to Advance</h5>
+                <p>Either you want to start or you want to master this course will work in both cases.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="https://img.icons8.com/color/150/null/packaging.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Premium Bonuses</h5>
+                <p>Get Bonuses worth ₹10,000 Absolutely free. Which will make your journey smoother.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main_div about_div">
+        <div class="left">
+            <img src="https://codegrills.in/images/approach-3.jpg" id="about-img" alt="">
+        </div>
+        <div class="right">
+            <h1>About Us 🧑‍💻</h1>
+            <p>We are intended to get the world at powerful speculations just as it assists individuals to get knowledge
+                of IT domain that includes how fostering a product and framework, securing yourself and your business.
+                We are a group of ethical hackers and our mission is to help people, companies, government, fight
+                against cyber criminals and the scum of the internet. We take great pride in our professionalism and
+                state of the art tools to achieve our objectives.
+            </p>
+            <ul>
+                <li>Ethical Hacking</li>
+                <li>Android Hacking</li>
+                <li>Web Development</li>
+                <li>Bug Bounty Hunting</li>
+                <li>Social Engineering</li>
+                <li>PC Security</li>
+                <li>Digital Forensic</li>
+                <li>Network Security</li>
+                <li>Cyber Security</li>
+                <li>Threat Intelligence </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="demo_video">
+        <h1>CodeGrills Ethical Hacking ( Demo Video ) </h1>
+        <div class="videos">
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/X6wdcdkXsWE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Eh98mnkPP9U"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <h1>Student benifits</h1>
+    </div>
+
+    <div class="features2 benifits student_reviews py-3">
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/color/120/null/class.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Live Classes</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/external-flaticons-flat-flat-icons/120/null/external-pc-privacy-flaticons-flat-flat-icons.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Learn Practically</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/fluency/120/null/hard-working.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Work Assignments</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/120/null/external-study-high-school-flatart-icons-lineal-color-flatarticons-1.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Study Material</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/color/120/null/davinci-resolve.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Software &amp; Tools</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/dusk/120/null/contract.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Certificate</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/color/120/null/money-bag.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">EMI Option</h5>
+            </div>
+        </div>
+        <div class="card mx-2" style="width: 18rem; border:2px solid #9FEF00">
+            <img class="card-img-top" src="https://img.icons8.com/color/120/null/technical-support.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Lifetime Support</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <h1>Student Reviews</h1>
+    </div>
+    <div class="features student_reviews swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="card" style="width: 400px;">
+                    <img class="card-img-top" src="https://i.ibb.co/824SZyJ/7-A50-E6-A2-E631-11-EC-9331-1624456-CC003.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Sanket</h5>
+                        <p>Course was Amazing & best ever on the internet in cheap price.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card" style="width: 400px;">
+                    <img class="card-img-top" src="https://media.licdn.com/dms/image/D5603AQGwrwRNFTZYqQ/profile-displayphoto-shrink_400_400/0/1666874714478?e=1694649600&v=beta&t=40cYM1zWw3yLsS_L3YTe0_yN8hmZTEeALmEckfYXMbE"
+                        alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Amjad</h5>
+                        <p>Either you want to start or you want to master this course is best.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card" style="width: 400px;">
+                    <img class="card-img-top" src="https://media.licdn.com/dms/image/D4D03AQEDN0Ys5I61OQ/profile-displayphoto-shrink_400_400/0/1669541711995?e=1694649600&v=beta&t=mlKWZaNdW6yVkVQUJiEOj7IKWowLnmynTGX0BADLXH8" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Yash</h5>
+                        <p>Easy to start carreer in ethical hacking with this course.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-bullets-dynamic" style="width: 80px;"><span class="swiper-pagination-bullet swiper-pagination-bullet-active swiper-pagination-bullet-active-main" style="left: 32px;" aria-current="true"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next" style="left: 32px;"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active-next-next" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span><span class="swiper-pagination-bullet" style="left: 32px;"></span></div>
+    </div>
+
+
+
+    <section class="container-fluid FAQDIV py-5">
+        <p class="main-text text-lg text-center margin-bottom my-3">Frequently Asked Question <br></p>
+
+        <ul class="faq-accordion text-md">
+            <li>
+                <input class="faq-input" type="radio" name="faq" id="faq-1" />
+                <label class="faq-label" for="faq-1">What Are The Pre-Requsites Of Course? <b>➕</b>  </label>
+                <div class="faq-content">
+                    <p>
+                        1. You Need Know How To Use Windows Pc <br>
+                        2. Basic Linux Knowledge<br>
+                        3.  Hindi Language <br />
+                        <br />
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <input class="faq-input" type="radio" name="faq" id="faq-2" />
+                <label class="faq-label" for="faq-2">
+                    How Long Will It Take To Get Access To The Course? And How I Can Access? <b>➕</b> </label>
+                <div class="faq-content">
+                    <p>On the checkout page, you have to fill out an email.
+                        After successful payment, you will receive an email containing a log-in link with a username and password.
+                        You have to use that for login.</p>
+                </div>
+            </li>
+
+            <li>
+                <input class="faq-input" type="radio" name="faq" id="faq-3" />
+                <label class="faq-label" for="faq-3">Will This Course Work If I Am Totally New To Ethical Hacking? <b>➕</b> </label>
+                <div class="faq-content">
+                    <p>
+                        It is specially designed for beginners who want to start Ethical Hacking. If you are the one Enroll Now!<br />
+                        <br />
+                   
+                    </p>
+                </div>
+            </li>
+
+            <li>
+                <input class="faq-input" type="radio" name="faq" id="faq-4" />
+                <label class="faq-label" for="faq-4">Do I Need To A Tech-Savvy To Understand The Content Of The Course? <b>➕</b> </label>
+                <div class="faq-content">
+                    <p>No, You Just Have To Know How To Operate Computer System?, Have Strong Will Power. In Some Videos Of The Course You Need Basics Of Kali Linux.</p>
+                </div>
+            </li>
+
+            <li>
+                <input class="faq-input" type="radio" name="faq" id="faq-5" />
+                <label class="faq-label" for="faq-5">Everything Is Available On YouTube. Then Why Should I Go For Course? <b>➕</b> </label>
+                <div class="faq-content">
+                    <p>Yes, you are correct.
+
+                        The internet has all the information which you can access for free. But they are not organized!.</p>
+                </div>
+            </li>
+
+         
+        </ul>
+    </section>
+
+
+    <div class="note">
+        <p>Disclaimer : This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, This site is
+            NOT endorsed by Facebook™ in any way. FACEBOOK™ is a trademark of FACEBOOK™, Inc. As stipulated by law, we
+            can not and do not make any guarantees about your ability to get results or earn any money with our ideas,
+            information, tools or strategies. We just want to help you by giving great content, direction and strategies
+            that worked well for us and our students and that we believe can move you forward. All of our terms, privacy
+            policies, and disclaimers for this program and website can be accessed via the link above. We feel
+            transparency is important and we hold ourselves (and you) to a high standard of integrity. Thanks for
+            stopping by. We hope this training and content brings you a lot of value.</p>
+        
+            <div class="divider">
+                <img src="pngwing.com.png" alt="">
+                <img src="pngwing.com.png" alt="">
+                <img src="pngwing.com.png" alt="">
+                <img src="pngwing.com.png" alt="">
+                <img src="pngwing.com.png" alt="">
+            </div>
+        <h1>Everything About Ethical Hacking</h1>
+    </div>
+
+
+    <footer>
+        <button id="enrollBtn">
+            <p>Enroll Now <strike>₹ 5000</strike> ₹ 2000 /- 💰 </p>
+        </button>
+        <ul>
+            <li>🧑‍💻 5000+ Students Already Enrolled</li>
+            <li>🌍 In Hindi Language</li>
+        </ul>
+        <div>
+            <ul>
+                <li>📞 +91123456789</li>
+                <li>✉️ codegrills@gmail.com</li>
+            </ul>
+        </div>
+    </footer>
+
+    <div class="last_div">
+        <p>created with 💻 By Technical Sanket &copy;2022-2023</p>
+    </div>
+
+    <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+        dynamicBullets: true,
+      },
+    });
+  </script>
+
+    <!-- Optional JavaScript -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
